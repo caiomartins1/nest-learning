@@ -11,11 +11,7 @@ import { MessagesService } from './messages.service';
 
 @Controller('messages')
 export class MessagesController {
-  private readonly messagesService: MessagesService;
-  constructor() {
-    // BAD Coupling
-    this.messagesService = new MessagesService();
-  }
+  constructor(private readonly messagesService: MessagesService) {}
 
   @Get()
   listMessages() {
